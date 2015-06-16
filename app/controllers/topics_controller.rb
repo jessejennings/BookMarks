@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
 
   def index
-    @topics = Topic.find(params[:id])
+    @topics = Topic.all
   end
 
   def new
@@ -21,7 +21,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    @bookmarks = @topic.bookmarks.includes(:user)
+    @bookmarks = @topic.bookmarks
   end
 
   def edit
@@ -46,7 +46,7 @@ class TopicsController < ApplicationController
       flash[:notice] = "Successfully deleted."
       redirect_to topics_path
     else
-      flash[:notice] = "There was no error deleting the topic."
+      flash[:error] = "There was no error deleting the topic."
       render :show
     end
   end
