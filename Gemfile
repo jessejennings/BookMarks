@@ -25,7 +25,7 @@ gem 'bootstrap-sass'
 
 gem 'devise'
 
-gem 'figaro'
+gem 'figaro', '1.0'
 
 group :production do
   gem 'pg'
